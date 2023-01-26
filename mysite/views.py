@@ -8,7 +8,7 @@ from .models import Project, Contact
 
 
 def index(request):
-    projects = Project.objects.all()
+    projects = Project.objects.all().order_by("id")
     return render(request, 'index.html', {
         "projects": projects
     })
