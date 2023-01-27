@@ -603,10 +603,9 @@ h3 {
 
 @media (max-width: 767px) {
 
-
     #about {
         width: 95%;
-        height: 95vh;
+        height: auto;
         padding-top: 60px;
         margin-bottom: 60px;
     }
@@ -645,7 +644,7 @@ h3 {
     }
 
     #frameworks .container {
-        height: 60vh;
+        height: auto;
         display: grid;
         place-items: center;
     }
@@ -671,7 +670,7 @@ h3 {
     #projects {
         padding-top: 0px;
         padding-bottom: 0px;
-        height: 65vh;
+        height: auto;
     }
 
     #projects h2 {
@@ -700,5 +699,19 @@ h3 {
 
     #contact-me i {
         margin-right: 1rem;
+    }
+}
+
+@media (max-height: 750px) {
+    #hero {
+        height: fit-content;
+    }
+
+    #about {
+        padding-top: 0px;
+    }
+
+    #education {
+        height: fit-content;
     }
 }
