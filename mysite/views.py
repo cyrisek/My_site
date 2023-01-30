@@ -21,6 +21,9 @@ def send_email(request):
         from_email = request.POST['email']
         message = request.POST['message']
 
+        if not all([subject, from_email, message]):
+            return JsonResponse({"message": "All fields are required.", "status": "danger"}, status=201)
+
         info = (f"{message} from: {from_email}")
 
         send_mail(
@@ -35,7 +38,8 @@ def send_email(request):
             existing_contact.message = message
             existing_contact.save()
         except Contact.DoesNotExist:
-            contact = Contact.objects.create(name=subject, email=from_email, message=message)
+            contact = Contact.objects.create(
+                name=subject, email=from_email, message=message)
             contact.save()
         return JsonResponse({"message": "Email sent successfully.", "status": "success"}, status=201)
     else:
