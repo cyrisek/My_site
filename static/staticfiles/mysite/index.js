@@ -55,6 +55,10 @@ $("form").submit(function (event) {
         } else {
             $(".alert-danger").removeClass("d-none").html(response.message);
             console.log(response);
+            $('#myForm').find('input[type="text"], input[type="email"], textarea').val('');
+            setTimeout(function () {
+                $(".alert-danger").addClass("d-none");
+            }, 5000);
         }
     });
 });
