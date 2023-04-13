@@ -1,0 +1,40 @@
+{% load static %}
+<section id="about" class="paddsection">
+    <div class="container">
+        <div class="row text-center my-5">
+            <h2 class="display-5 fw-bold lh-1 mb-3">About Me</h2>
+        </div>
+        <div class="row justify-content-between my-5">
+
+            <div class="col-lg-4 col-md-12 col-sm-12 p-4 d-flex justify-content-center">
+                <div class="div-img-bg">
+                    <div class="about-img">
+                        <img src="{% static 'images/mateusz2.jpg' %}" class="img-responsive" alt="me">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7 col-md-12 col-sm-12">
+                <div class="about-descr">
+
+                    <p class="p-heading text-muted mx-2">I am a recent graduate of CS50x and CS50 Web, two
+                        highly
+                        respected computer
+                        science courses offered by Harvard University. Through these programs, I gained a solid
+                        foundation in computer science concepts and web development. </p>
+                    <p class="separator text-muted mx-2"> I am passionate about using technology to solve
+                        problems
+                        and
+                        create
+                        innovative solutions. I am excited to apply my knowledge and skills to real-world
+                        projects
+                        and continue learning and growing in the field of computer science.</p>
+                    <a class="btn btn-outline-primary mt-4" href="{% static 'util/Mateusz-Urban-CV.pdf' %}" title=""
+                        download>CV <i class="fa fa-download"></i></a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

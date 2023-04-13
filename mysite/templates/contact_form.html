@@ -1,0 +1,58 @@
+{% load static %}
+<section id="contact-me" class="mt-4">
+    <div class="container contact-me">
+        <h2 class="section-title display-5 fw-bold lh-1 mb-5">Contact Me</h2>
+        <div class="alert alert-success text-center d-none" role="alert">
+        </div>
+        <div class="alert alert-danger text-center d-none" role="alert">
+        </div>
+        <div class="row p-5">
+            <div class="col-lg-6">
+                <div class="row justify-items-center">
+                    <div class="col-1 float-left">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="col">
+                        <h4>Call Me</h4>
+                        <p class=" text-muted">07393-682-804</p>
+                    </div>
+                </div>
+                <div class="row justify-items-center">
+                    <div class="col-1">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="col">
+                        <h4>Email</h4>
+                        <p class="text-muted">mateusz.marek.urban@gmail.com</p>
+                    </div>
+                </div>
+                <div class="row justify-items-center">
+                    <div class="col-1">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="col">
+                        <h4>Location</h4>
+                        <p class="text-muted">Kettering, Northamptonshire, UK.</p>
+                    </div>
+                </div>
+            </div>
+            <form id="myForm" class="col-lg-6" action="{% url 'send_email' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group p-1">
+                    <label class="p-1" for="name">Name:</label>
+                    <input name="name" type="text" class="form-control " id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label class="p-1" for="email">Email:</label>
+                    <input name="email" type="email" class="form-control " id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group pb-2">
+                    <label class="p-1" for="message">Message:</label>
+                    <textarea name="message" class="form-control " id="message" rows="3"
+                        placeholder="Enter your message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>

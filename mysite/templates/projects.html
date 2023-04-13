@@ -1,0 +1,25 @@
+{% load static %}
+<section id="projects" class="my-5">
+    <div class="container my-5">
+        <h2 class="section-title display-5 fw-bold lh-1 mb-5 text-center">Projects</h2>
+        <div class="owl-carousel owl-theme">
+            {% for project in projects %}
+            <div class="item">
+                <div class="card">
+                    <img src="{{project.image}}" class="card-img-top" alt="Space Invaders">
+                    <div class="card-body">
+                        <h5 class="card-title">{{project.title}}</h5>
+                        <p class="card-text text-muted">{{project.content}}</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="{{project.deployment_url}}" class="btn btn-primary">View
+                            Project</a>
+                        <a href="{{project.github_url}}" class="btn btn-outline-primary"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
