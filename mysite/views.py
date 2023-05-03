@@ -1,17 +1,21 @@
+from django.views.generic import TemplateView, ListView
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
 from django.http import JsonResponse
-from .models import Project, Contact
+from .models import Project, Contact, Education, Profile
 # Create your views here.
 
 
-def index(request):
-    projects = Project.objects.all().order_by("id")
-    return render(request, 'base.html', {
-        "projects": projects
-    })
+class BaseView(TemplateView):
+    template_name = 'base.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        mateusz = Profile.objects.get(name='Mateusz Urban')
+        context['mateusz'] = mateusz
+        return context
 
 
 @csrf_exempt

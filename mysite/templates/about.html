@@ -17,20 +17,10 @@
             <div class="col-lg-7 col-md-12 col-sm-12">
                 <div class="about-descr">
 
-                    <p class="p-heading text-muted mx-2">I am a recent graduate of CS50x and CS50 Web, two
-                        highly
-                        respected computer
-                        science courses offered by Harvard University. Through these programs, I gained a solid
-                        foundation in computer science concepts and web development. </p>
-                    <p class="separator text-muted mx-2"> I am passionate about using technology to solve
-                        problems
-                        and
-                        create
-                        innovative solutions. I am excited to apply my knowledge and skills to real-world
-                        projects
-                        and continue learning and growing in the field of computer science.</p>
-                    <a class="btn btn-outline-primary mt-4" href="{% static 'util/Mateusz-Urban-CV.pdf' %}" title=""
-                        download>CV <i class="fa fa-download"></i></a>
+                    <p class="p-heading text-muted mx-2">{{ mateusz.bio.paragraph_top }}</p>
+                    <p class="separator text-muted mx-2">{{ mateusz.bio.paragraph_bot }}</p>
+                    <a class="btn btn-outline-primary mt-4" href="{% static 'static/cv/Mateusz-Urban-CV.pdf' %}"
+                        title="" download>CV <i class="fa fa-download"></i></a>
 
                 </div>
 

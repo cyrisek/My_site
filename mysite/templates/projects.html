@@ -3,7 +3,7 @@
     <div class="container my-5">
         <h2 class="section-title display-5 fw-bold lh-1 mb-5 text-center">Projects</h2>
         <div class="owl-carousel owl-theme">
-            {% for project in projects %}
+            {% for project in mateusz.projects.all %}
             <div class="item">
                 <div class="card">
                     <img src="{{project.image}}" class="card-img-top" alt="Space Invaders">

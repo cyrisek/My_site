@@ -1,4 +1,3 @@
-{% load static %}
 <section id="education" class="mt-4">
     <div class="container text-center">
         <h2 class="display-5 fw-bold lh-1 mb-5">Qualification</h2>
@@ -17,51 +16,28 @@
             </div>
             <div class="container p-5">
                 <ul class="timeline">
+                    {% for education in mateusz.education.all %}
                     <li class="timeline-item mb-5 education-item">
-                        <h5 class="fw-bold">CS50x, Harvard University</h5>
-                        <p class="text-muted mb-2 fw-bold">2022 <i class="bi bi-calendar-week"></i></p>
+                        <h5 class="fw-bold">{{ education.title }}, {{ education.institution }}</h5>
+                        <p class="text-muted mb-2 fw-bold">{{ education.year }} <i class="bi bi-calendar-week"></i></p>
                         <p class="text-muted">
-                            Coursework included: Introduction to Computer Science.
+                            {{ education.overview }}
                         </p>
-                        <a href="https://certificates.cs50.io/2c0806d4-9717-4682-92b3-238cccba9d4d.pdf?size=letter"
-                            class="btn btn-outline-primary"><i class="fas fa-award"></i></a>
+                        <a href="{{ education.certificate }}" class="btn btn-outline-primary"><i
+                                class="fas fa-award"></i></a>
                     </li>
-                    <li class="timeline-item mb-5 education-item">
-                        <h5 class="fw-bold">CS50 Web, Harvard University</h5>
-                        <p class="text-muted mb-2 fw-bold">2022-2023 <i class="bi bi-calendar-week"></i></p>
-                        <p class="text-muted">
-                            Coursework included: Web Development with Python, Javascript and Django.
-                        </p>
-                        <a href="https://certificates.cs50.io/de23c7e8-ef7b-4adc-bb30-5e90780c6ccf.pdf?size=letter"
-                            class="btn btn-outline-primary"><i class="fas fa-award"></i></a>
-                    </li>
-                    <li class="timeline-item mb-5 education-item">
-                        <h5 class="fw-bold">CS50P, Harvard University</h5>
-                        <p class="text-muted mb-2 fw-bold">2023 <i class="bi bi-calendar-week"></i></p>
-                        <p class="text-muted">
-                            Coursework included: Introduction to Programming with Python.
-                        </p>
-                        <a href="https://cs50.harvard.edu/certificates/1fb30060-fc06-4b4d-8364-23faa5a7aad1"
-                            class="btn btn-outline-primary"><i class="fas fa-award"></i></a>
-                    </li>
+                    {% endfor %}
                     <!-- work -->
+                    {% for work in mateusz.work_experience.all %}
                     <li class="timeline-item mb-5 work-item">
-                        <h5 class="fw-bold">Team Leader Support and Forklift Driver, GXO (former XPO)</h5>
-                        <p class="text-muted mb-2 fw-bold">2016-2021 <i class="bi bi-calendar-week"></i></p>
+                        <h5 class="fw-bold">{{ work.title }}, {{ work.company }}</h5>
+                        <p class="text-muted mb-2 fw-bold">{{ work.year_start }}-{{ work.year_end }} <i
+                                class="bi bi-calendar-week"></i></p>
                         <p class="text-muted">
-                            Led a team of support staff in the warehouse and distribution center
-                            Assisted in the planning and execution of logistics operations.
+                            {{ work.overview }}
                         </p>
                     </li>
-
-                    <li class="timeline-item mb-5 work-item">
-                        <h5 class="fw-bold">Delivery Driver, Amazon</h5>
-                        <p class="text-muted mb-2 fw-bold">2021-Present <i class="bi bi-calendar-week"></i></p>
-                        <p class="text-muted">
-                            Delivered packages to customers in a timely and efficient manner.
-                            Resolved any issues or complaints from customers.
-                        </p>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
