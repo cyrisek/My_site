@@ -3,30 +3,18 @@
     <div class="container">
         <h2 class="row text-center display-5 fw-bold lh-1 mb-3">Skills</h2>
         <div class="card-group row">
+            {% for image in mateusz.secondary_skills.all %}
             <div class="little-card card">
 
-            </div>
-            <div class="big-card card">
+                <img src="{{ image.image }}" class="img-fluid" alt="{{ image.title }}">
 
             </div>
-            <div class="little-card card">
-
+            {% endfor %}
+            {% for image in mateusz.primary_skills.all %}
+            <div class=" big-card card">
+                <img src="{{ image.image }}" class="img-fluid" alt="{{ image.title }}">
             </div>
-            <div class="big-card card">
-
-            </div>
-            <div class="little-card card">
-
-            </div>
-            <div class="big-card card">
-
-            </div>
-            <div class="little-card card">
-
-            </div>
-            <div class="big-card card">
-
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

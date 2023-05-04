@@ -2,31 +2,18 @@
 <footer class="bg-dark py-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 text-center text-md-left">
+            <div class="col-md-6 text-center d-flex justify-content-center align-items-center">
                 <p class="text-white mb-0">Copyright &copy; 2023 Mateusz Urban</p>
             </div>
             <div class="col-md-6 text-center text-md-right">
                 <ul class="list-inline mb-0">
-                    <li class="list-inline-item">
-                        <a href="https://www.instagram.com/cyrisek/tagged/" class="text-white">
-                            <i class="fab fa-instagram"></i>
+                    {% for social in mateusz.social_links.all %}
+                    <li class="list-inline-item py-2">
+                        <a href="{{ social.link }}" class="text-white">
+                            <i class="fab fa-{{ social.name }} p-2"></i>
                         </a>
                     </li>
-                    <li class="list-inline-item">
-                        <a href="https://www.facebook.com/Cytri/" class="text-white">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="https://www.linkedin.com/in/mateusz-urban-cyris/" class="text-white">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="https://github.com/cyrisek" class="text-white">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

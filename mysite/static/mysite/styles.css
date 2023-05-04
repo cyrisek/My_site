@@ -49,7 +49,7 @@ h3 {
 }
 
 .navbar .nav-link {
-    color: color: var(--text-color);
+    color: var(--text-color);
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
@@ -94,10 +94,9 @@ h3 {
     box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
-
 #hero i {
     color: var(--text-color);
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 
@@ -105,7 +104,7 @@ h3 {
     color: white;
     background-color: black;
     border-radius: 1rem;
-    font-size: 1.5rem;
+    font-size: 2.1rem;
 }
 
 #hero .image {
@@ -224,14 +223,24 @@ h3 {
 #frameworks .card {
     transition: transform 800ms cubic-bezier(.05, .43, .25, .95);
     position: absolute;
-    background-position: center;
-    background-size: cover;
-    border: none;
+    border: 1px solid grey;
+    margin: 0;
+    padding: 0;
+}
+#frameworks img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 3rem;
+}
+#frameworks .little-card img {
+    border-radius: 1.5rem;
 }
 
 #frameworks .big-card {
     border-radius: 3rem;
 }
+
 
 #frameworks .little-card {
     width: 150px;
@@ -243,78 +252,78 @@ h3 {
     pointer-events: none;
 }
 
-.big-card:nth-child(2) {
-    background-image: url("https://miro.medium.com/max/438/1*0G5zu7CnXdMT9pGbYUTQLQ.png");
-    transform: translateX(-10%) rotate(-1deg);
-}
-
-.big-card:nth-child(4) {
-    background-image: url("https://img.vpnclub.cc/content/zh/2019/08/jQuery-CDN-Replace-JavaScript-Code-Logo.jpg");
-    transform: rotate(2deg);
-}
-
-.big-card:nth-child(6) {
-    background-image: url("https://cdn.worldvectorlogo.com/logos/react-1.svg");
-    transform: translateX(-6%) rotate(-3deg);
+.big-card:nth-child(7) {
+    transform: translateX(-15%) rotate(-7deg);
 }
 
 .big-card:nth-child(8) {
-    background-image: url("https://theaveragenz.com/wp-content/uploads/2018/01/1_1OBwwxzJksMv0YDD-XmyBw.png");
-    transform: translate(10%, 3%) rotate(5deg);
+    transform: translateX(-10%) rotate(-5deg);
 }
 
-.little-card:nth-child(1) {
-    background-image: url("https://sass-lang.com/assets/img/styleguide/seal-color-aef0354c.png");
+.big-card:nth-child(9) {
+    transform: translateX(-5%) rotate(-3deg);
 }
 
-.little-card:nth-child(3) {
-    background-image: url("https://avatars.githubusercontent.com/u/2918581?s=280&v=4");
+.big-card:nth-child(10) {
+    transform: translate(10%, 3%) rotate(3deg);
+}
+.big-card:nth-child(11) {
+    transform: translate(15%, 6%) rotate(5deg);
+}
+.big-card:nth-child(12) {
+    transform: translate(20%, 9%) rotate(7deg);
 }
 
-.little-card:nth-child(5) {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png");
-}
-
-.little-card:nth-child(7) {
-    background-image: url("http://www.sketchappsources.com/resources/source-image/python-logo.png");
-}
 
 /* animation for card */
 .card-group:hover>.card {
     box-shadow: -2vmin 2vmin 3vmin rgba(0, 0, 0, 0.4);
 }
 
-.card-group:hover>.big-card:nth-child(2) {
-    transform: translate(-75%, 16%) rotate(-24deg);
-}
-
-.card-group:hover>.big-card:nth-child(4) {
-    transform: translate(-25%, 8%) rotate(-8deg);
-}
-
-.card-group:hover>.big-card:nth-child(6) {
-    transform: translate(25%, 8%) rotate(8deg);
+.card-group:hover>.big-card:nth-child(7) {
+    transform: translate(-125%, 16%) rotate(-18deg);
 }
 
 .card-group:hover>.big-card:nth-child(8) {
-    transform: translate(75%, 16%) rotate(24deg);
+    transform: translate(-75%, 8%) rotate(-12deg);
 }
 
+.card-group:hover>.big-card:nth-child(9) {
+    transform: translate(-25%, 0%) rotate(-6deg);
+}
+
+.card-group:hover>.big-card:nth-child(10) {
+    transform: translate(25%, 0%) rotate(6deg);
+}
+.card-group:hover>.big-card:nth-child(11) {
+    transform: translate(75%, 8%) rotate(12deg);
+}
+.card-group:hover>.big-card:nth-child(12) {
+    transform: translate(125%, 16%) rotate(16deg);
+}
 .card-group:hover>.little-card:nth-child(1) {
-    transform: translate(200%, -160%) rotate(-15deg);
+    transform: translate(200%, -120%) rotate(15deg);
+}
+
+.card-group:hover>.little-card:nth-child(2) {
+    transform: translate(300%, 250%) rotate(15deg);
 }
 
 .card-group:hover>.little-card:nth-child(3) {
-    transform: translate(300%, 200%) rotate(15deg);
+    transform: translate(-300%, -120%) rotate(-15deg);
 }
 
+.card-group:hover>.little-card:nth-child(4) {
+    transform: translate(-350%, 250%) rotate(-15deg);
+}
 .card-group:hover>.little-card:nth-child(5) {
-    transform: translate(-300%, -170%) rotate(15deg);
+    transform: translate(-50%, 200%);
 }
 
-.card-group:hover>.little-card:nth-child(7) {
-    transform: translate(-350%, 200%) rotate(-15deg);
+.card-group:hover>.little-card:nth-child(6) {
+    transform: translate(-50%, -160%);
 }
+
 
 
 /* Projects */
@@ -437,39 +446,11 @@ h3 {
 
 
 /* Footer styles */
-
-.footer {
-    background-color: #333;
-    color: #fff;
-    padding: 30px 0;
-    margin-top: 30px;
+footer {
+    font-size: 1.2rem;
 }
-
-.footer .social-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.footer .social-links li {
-    margin-right: 20px;
-}
-
-.footer .social-links li a {
-    color: #fff;
-    font-size: 20px;
-    display: block;
-    transition: 0.3s;
-}
-
-.footer .social-links li a:hover {
-    color: #0099cc;
-}
-
-.footer p {
-    font-size: 14px;
-    margin-bottom: 0;
+footer i {
+    font-size: 1.5rem;
 }
 
 /* Media queries */
@@ -658,12 +639,15 @@ h3 {
 
 
 
-    #frameworks .big-card {
+    #frameworks .big-card img {
         border-radius: 2rem;
     }
 
     #frameworks .little-card {
         width: 13vmin;
+        border-radius: 1rem;
+    }
+    #frameworks .little-card img {
         border-radius: 1rem;
     }
 

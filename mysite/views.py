@@ -1,11 +1,11 @@
-from django.views.generic import TemplateView, ListView
-from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.views.generic import TemplateView, FormView
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
-from django.http import JsonResponse
-from .models import Project, Contact, Education, Profile
-# Create your views here.
+from django.http import JsonResponse, FileResponse, Http404
+from .models import Contact, Profile
+from .forms import ContactForm
 
 
 class BaseView(TemplateView):
@@ -15,18 +15,20 @@ class BaseView(TemplateView):
         context = super().get_context_data(**kwargs)
         mateusz = Profile.objects.get(name='Mateusz Urban')
         context['mateusz'] = mateusz
+        form = ContactForm()
+        context['form'] = form
         return context
 
 
-@csrf_exempt
-def send_email(request):
-    if request.method == 'POST':
-        subject = request.POST['name']
-        from_email = request.POST['email']
-        message = request.POST['message']
+class ContactView(FormView):
+    form_class = ContactForm
+    template_name = 'contact_form.html'
+    success_url = reverse_lazy('base')
 
-        if not all([subject, from_email, message]):
-            return JsonResponse({"message": "All fields are required.", "status": "danger"}, status=201)
+    def form_valid(self, form):
+        subject = form.cleaned_data['name']
+        from_email = form.cleaned_data['email']
+        message = form.cleaned_data['message']
 
         info = (f"{message} from: {from_email}")
 
@@ -45,6 +47,18 @@ def send_email(request):
             contact = Contact.objects.create(
                 name=subject, email=from_email, message=message)
             contact.save()
+
         return JsonResponse({"message": "Email sent successfully.", "status": "success"}, status=201)
-    else:
-        return JsonResponse({"message": "Connection failed, try again.", "status": "danger"}, status=201)
+
+    def form_invalid(self, form):
+        return JsonResponse({"message": "All fields are required.", "status": "danger"}, status=201)
+
+
+def download_file(request):
+    mateusz = get_object_or_404(Profile, name='Mateusz Urban')
+    my_cv = mateusz.bio.cv
+    print(my_cv)
+
+    response = FileResponse(my_cv)
+
+    return response

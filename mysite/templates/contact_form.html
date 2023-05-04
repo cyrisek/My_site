@@ -14,7 +14,7 @@
                     </div>
                     <div class="col">
                         <h4>Call Me</h4>
-                        <p class=" text-muted">07393-682-804</p>
+                        <p class=" text-muted">{{ mateusz.contact.phone_number }}</p>
                     </div>
                 </div>
                 <div class="row justify-items-center">
@@ -23,7 +23,7 @@
                     </div>
                     <div class="col">
                         <h4>Email</h4>
-                        <p class="text-muted">mateusz.marek.urban@gmail.com</p>
+                        <p class="text-muted">{{ mateusz.contact.email }}</p>
                     </div>
                 </div>
                 <div class="row justify-items-center">
@@ -32,25 +32,13 @@
                     </div>
                     <div class="col">
                         <h4>Location</h4>
-                        <p class="text-muted">Kettering, Northamptonshire, UK.</p>
+                        <p class="text-muted">{{ mateusz.contact.location }}.</p>
                     </div>
                 </div>
             </div>
-            <form id="myForm" class="col-lg-6" action="{% url 'send_email' %}" method="POST">
+            <form id="myForm" class="col-lg-6" action="{% url 'contact' %}" method="POST">
                 {% csrf_token %}
-                <div class="form-group p-1">
-                    <label class="p-1" for="name">Name:</label>
-                    <input name="name" type="text" class="form-control " id="name" placeholder="Enter your name">
-                </div>
-                <div class="form-group">
-                    <label class="p-1" for="email">Email:</label>
-                    <input name="email" type="email" class="form-control " id="email" placeholder="Enter your email">
-                </div>
-                <div class="form-group pb-2">
-                    <label class="p-1" for="message">Message:</label>
-                    <textarea name="message" class="form-control " id="message" rows="3"
-                        placeholder="Enter your message"></textarea>
-                </div>
+                {{ form.as_p }}
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

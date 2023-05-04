@@ -19,8 +19,8 @@
 
                     <p class="p-heading text-muted mx-2">{{ mateusz.bio.paragraph_top }}</p>
                     <p class="separator text-muted mx-2">{{ mateusz.bio.paragraph_bot }}</p>
-                    <a class="btn btn-outline-primary mt-4" href="{% static 'static/cv/Mateusz-Urban-CV.pdf' %}"
-                        title="" download>CV <i class="fa fa-download"></i></a>
+                    <a class="btn btn-outline-primary mt-4" href="{% url 'download_file' %}" download>CV <i
+                            class="fa fa-download"></i></a>
 
                 </div>
 

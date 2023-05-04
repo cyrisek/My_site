@@ -7,11 +7,8 @@
                 width="500" loading="lazy">
         </div>
         <div class="col-lg-5 col-md-12 text-left about">
-            <h1 class="display-5 fw-bold mb-3">Mateusz Urban - Django/Flask Developer</h1>
-            <p class="lead text-muted"> I specialize in creating dynamic web applications using these popular
-                frameworks.
-                Looking for new opportunities to use my skills and grow in the field. Let's connect and discuss how
-                I can contribute to your team.</p>
+            <h1 class="display-5 fw-bold mb-3">{{ mateusz.name }} - {{ mateusz.job_title }}</h1>
+            <p class="lead text-muted">{{ mateusz.overview }}</p>
             <div class="d-grid gap-2 d-md-flex justify-content-left">
                 <a href="#contact-me">
                     <button type="button" class="btn btn-primary btn-lg me-md-2">
@@ -22,26 +19,13 @@
         </div>
         <div class="col-1 text-center text-md-right social">
             <ul class="list-inline-lg row mb-0">
-                <li class="list-inline-item py-2">
-                    <a href="https://www.instagram.com/cyrisek/tagged/" class="text-white">
-                        <i class="fab fa-instagram px-2 py-1"></i>
+                {% for social in mateusz.social_links.all %}
+                <li class="list-inline-item p-2 d-flex justify-content-center">
+                    <a href="{{ social.link }}" class="text-white">
+                        <i class="fab fa-{{ social.name }} p-2"></i>
                     </a>
                 </li>
-                <li class="list-inline-item py-2">
-                    <a href="https://www.facebook.com/Cytri/" class="text-white">
-                        <i class="fab fa-facebook-f px-2 py-1"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item py-2">
-                    <a href="https://www.linkedin.com/in/mateusz-urban-cyris/" class="text-white">
-                        <i class="fab fa-linkedin-in px-2 py-1"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item py-2">
-                    <a href="https://github.com/cyrisek" class="text-white">
-                        <i class="fab fa-github px-2 py-1"></i>
-                    </a>
-                </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
