@@ -62,3 +62,29 @@ $("form").submit(function (event) {
         }
     });
 });
+$('#color-button').on('click', function () {
+    const currentMainColor = $(':root').css('--main-color');
+    const currentAccentColor = $(':root').css('--accent-color');
+
+    if (currentMainColor === '#fafafa') {
+        $(':root').css('--main-color', '#09192E');
+        $(':root').css('--accent-color', '#42A2A1');
+        $(':root').css('--text-color', '#CEDBF2');
+        $(':root').css('--hover-color', '#05edeb');
+        $(':root').css('--background-color', '#172A45');
+        $(':root').css('--shadow-color', 'rgba(255, 255, 255, 0.2)');
+        $(':root').css('--card-footer-color', '#13243b');
+        $('nav').addClass('navbar-dark');
+        $('.moon-sun-icon').removeClass('bi-moon-stars-fill').addClass('bi-sun-fill');
+    } else {
+        $(':root').css('--main-color', '#fafafa');
+        $(':root').css('--accent-color', '#6e4fef');
+        $(':root').css('--text-color', '#040307');
+        $(':root').css('--hover-color', '#342570');
+        $(':root').css('--background-color', '#fafafa');
+        $(':root').css('--shadow-color', 'rgba(0, 0, 0, 0.2)');
+        $(':root').css('--card-footer-color', '#f7f7f7');
+        $('nav').removeClass('navbar-dark');
+        $('.moon-sun-icon').removeClass('bi-sun-fill').addClass('bi-moon-stars-fill');
+    }
+});

@@ -5,9 +5,12 @@
 
 :root {
     --main-color: #fafafa;
-    --acent-color: #6e4fef;
+    --background-color: #fafafa;
+    --accent-color: #6e4fef;
     --text-color: #040307;
     --hover-color: #342570;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --card-footer-color: #F7F7F7;
 }
 
 * {
@@ -23,14 +26,6 @@ body {
     scroll-behavior: smooth;
 }
 
-a .navbar-brand {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 h1,
 h2,
 h3 {
@@ -38,10 +33,20 @@ h3 {
 }
 
 
-
 /* Navbar styles */
+a .navbar-brand {
+    text-decoration: none;
+}
+nav button .navbar-toggler{
+    color:var(--text-color);
+}
+nav a:hover{
+    color: var(--accent-color)!important;
+    text-decoration: underline;
+}
 
 .navbar {
+    background-color: var(--main-color);
     border-bottom: 1px solid #ddd;
     height: 7vh;
     font-weight: 550;
@@ -58,10 +63,12 @@ h3 {
 
 
 .navbar .nav-link.active {
+    color: var(--text-color);
     font-weight: bold;
 }
 
 .navbar a {
+    color: var(--text-color);
     animation: fadeInDown;
     animation-duration: 1.5s;
 }
@@ -91,7 +98,7 @@ h3 {
 
 #hero img:hover {
     animation: ease;
-    box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 20px 0 var(--shadow-color);
 }
 
 #hero i {
@@ -101,8 +108,8 @@ h3 {
 
 
 #hero li i:hover {
-    color: white;
-    background-color: black;
+    color: var(--background-color);
+    background-color: var(--text-color);
     border-radius: 1rem;
     font-size: 2.1rem;
 }
@@ -129,8 +136,8 @@ h3 {
 }
 
 .btn {
-    background-color: var(--acent-color);
-    border-color: var(--acent-color);
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 .btn:hover {
@@ -152,27 +159,28 @@ h3 {
 
 #about .div-img-bg {
     position: relative;
-    padding-bottom: 30px;
-    border: 15px solid var(--acent-color);
+    height: auto;
+    border: 15px solid var(--accent-color);
     border-radius: 3rem;
+    margin-bottom: 3rem;
 }
 
 #about .btn-outline-primary {
-    background-color: white;
-    color: var(--acent-color);
+    background-color: var(--background-color);
+    color: var(--accent-color);
 
 }
 
 #about .btn-outline-primary:hover {
     background-color: var(--hover-color);
-    color: white;
+    color:  var(--background-color);
     text-decoration: none;
 }
 
 #about img {
     width: 100%;
     aspect-ratio: 1/1;
-    box-shadow: 0 15px 15px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 15px 20px var(--shadow-color);
     margin-top: -60px;
     margin-left: 40px;
     height: auto;
@@ -223,61 +231,60 @@ h3 {
 #frameworks .card {
     transition: transform 800ms cubic-bezier(.05, .43, .25, .95);
     position: absolute;
-    border: 1px solid grey;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+#frameworks .big-card {
+    border-radius: 3rem;
+}
+
 #frameworks img {
-    width: 100%;
-    height: 100%;
+    border: 1px solid var(--accent-color);
     object-fit: fill;
+    width: auto;
+    height: 100%;
     border-radius: 3rem;
 }
 #frameworks .little-card img {
     border-radius: 1.5rem;
 }
-
-#frameworks .big-card {
-    border-radius: 3rem;
-}
-
-
 #frameworks .little-card {
     width: 150px;
     border-radius: 1.5rem;
     left: 50%;
     margin-top: 2rem;
     position: absolute;
-    box-shadow: -1vmin 1vmin 2vmin rgba(0, 0, 0, 0.25);
+    box-shadow: -1vmin 1vmin 2vmin var(--shadow-color);
     pointer-events: none;
 }
 
 .big-card:nth-child(7) {
-    transform: translateX(-15%) rotate(-7deg);
+    transform: translateX(-30%) rotate(-7deg);
 }
 
 .big-card:nth-child(8) {
-    transform: translateX(-10%) rotate(-5deg);
+    transform: translateX(-20%) rotate(-5deg);
 }
 
 .big-card:nth-child(9) {
-    transform: translateX(-5%) rotate(-3deg);
+    transform: translateX(-10%) rotate(-3deg);
 }
 
 .big-card:nth-child(10) {
-    transform: translate(10%, 3%) rotate(3deg);
+    transform: translate(0%) rotate(-1deg);
 }
 .big-card:nth-child(11) {
-    transform: translate(15%, 6%) rotate(5deg);
+    transform: translate(10%) rotate(1deg);
 }
 .big-card:nth-child(12) {
-    transform: translate(20%, 9%) rotate(7deg);
+    transform: translate(20%) rotate(3deg);
 }
 
 
 /* animation for card */
 .card-group:hover>.card {
-    box-shadow: -2vmin 2vmin 3vmin rgba(0, 0, 0, 0.4);
+    box-shadow: -2vmin 2vmin 3vmin var(--shadow-color);
 }
 
 .card-group:hover>.big-card:nth-child(7) {
@@ -343,23 +350,29 @@ h3 {
 
 #projects .card {
     height: 400px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 var(--shadow-color);
     transition: 0.3s;
     border-radius: 5px;
     margin-bottom: 30px;
 }
 
 #projects .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 var(--shadow-color);
 }
 
 #projects img {
     height: 150px;
     object-fit: cover;
 }
-
+#projects .card {
+    border-color: var(--background-color);
+}
 #projects .card .card-body {
+    background-color: var(--background-color);
     padding: 20px;
+}
+#projects .card .card-footer {
+    background-color: var(--card-footer-color);
 }
 
 #projects i {
@@ -371,19 +384,19 @@ h3 {
 }
 
 #projects .btn-outline-primary {
-    background-color: white;
-    color: var(--acent-color);
+    background-color:  var(--background-color);
+    color: var(--accent-color);
 }
 
 #projects .btn-outline-primary:hover {
     background-color: var(--hover-color);
-    color: white;
+    color:  var(--background-color);
 }
 
 /* Contact me */
 .contact-me i {
     font-size: 24px;
-    color: var(--acent-color);
+    color: var(--accent-color);
 }
 
 /* Education/Work */
@@ -398,14 +411,14 @@ h3 {
 }
 
 #education .btn-outline-primary {
-    background-color: white;
-    color: var(--acent-color);
+    background-color:  var(--background-color);
+    color: var(--accent-color);
     font-size: 1.2rem;
 }
 
 #education .btn-outline-primary:hover {
     background-color: var(--hover-color);
-    color: white;
+    color:  var(--background-color);
 }
 
 #education .work-item {
@@ -418,9 +431,12 @@ h3 {
     letter-spacing: 1px;
     text-align: center;
 }
+.contact-me form input, .contact-me form textarea {
+    background-color: var(--background-color);
+}
 
 .timeline {
-    border-left: 1px solid var(--acent-color);
+    border-left: 1px solid var(--accent-color);
     position: relative;
     list-style: none;
 }
@@ -436,7 +452,7 @@ h3 {
 }
 
 .timeline .timeline-item:after {
-    background-color: var(--acent-color);
+    background-color: var(--accent-color);
     left: -38px;
     border-radius: 50%;
     height: 11px;
@@ -454,9 +470,14 @@ footer i {
 }
 
 /* Media queries */
+@media (max-width: 1400px) {
+    #about img {
+        aspect-ratio: 3/4;
+    }
+}
 @media (max-width: 1200px) {
     #about img {
-        aspect-ratio: 5/8;
+        aspect-ratio: 1/2;
     }
 }
 
@@ -467,8 +488,8 @@ footer i {
 
     .navbar .nav-link {
         font-size: 14px;
-        background: white;
-        border-bottom: 1px solid black;
+        background: var(--background-color);
+        border-bottom: 1px solid var(--text-color);
     }
 
     #hero h1 {
@@ -533,25 +554,25 @@ footer i {
         position: relative;
         width: 90%;
         padding-bottom: 30px;
-        border: 10px solid var(--acent-color);
+        border: 10px solid var(--accent-color);
         border-radius: 2rem;
     }
 
     #about .btn-outline-primary {
-        background-color: white;
-        color: var(--acent-color);
+        background-color:  var(--background-color);
+        color: var(--accent-color);
 
     }
 
     #about .btn-outline-primary:hover {
         background-color: var(--hover-color);
-        color: white;
+        color:  var(--background-color);
         text-decoration: none;
     }
 
     #about img {
         aspect-ratio: 1/1;
-        box-shadow: 0 15px 15px 20px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 15px 15px 20px var(--shadow-color);
         margin-top: -60px;
         margin-left: 40px;
         height: 300px;
@@ -572,14 +593,12 @@ footer i {
     #frameworks {
         height: auto;
     }
-
-
-
-
-
-
-
-
+    #frameworks .big-card {
+        width: 27vmin;
+    }
+    #frameworks .little-card {
+        width: 13vmin;
+    }
 }
 
 @media (max-width: 767px) {
@@ -594,14 +613,17 @@ footer i {
     #hero .social {
         position: absolute;
         top: 20%;
-        left: -8%;
+        left: 10%;
     }
 
     #hero .social i {
         font-size: 24px;
         color: var(--text-color);
     }
-
+    #hero li i:hover {    
+        color: var(--background-color);
+        background-color: var(--text-color);
+    }
     #hero .image {
         padding-left: 50px;
     }
@@ -634,7 +656,7 @@ footer i {
 
     #frameworks .card-group,
     #frameworks .big-card {
-        width: 35vmin;
+        width: 30vmin;
     }
 
 
@@ -686,9 +708,18 @@ footer i {
     }
 }
 
+@media (max-width: 500px) {
+    #hero .social {
+        left: 0%;
+    }
+
+}
 @media (max-height: 750px) {
     #hero {
         height: fit-content;
+    }
+    #hero .social{
+        left:0%;
     }
 
     #about {

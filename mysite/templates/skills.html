@@ -1,7 +1,7 @@
 {% load static %}
 <section id="frameworks" class="px-5">
     <div class="container">
-        <h2 class="row text-center display-5 fw-bold lh-1 mb-3">Skills</h2>
+        <h2 class="row text-center display-5 fw-bold lh-1 mb-5">Skills</h2>
         <div class="card-group row">
             {% for image in mateusz.secondary_skills.all %}
             <div class="little-card card">
@@ -10,7 +10,7 @@
 
             </div>
             {% endfor %}
-            {% for image in mateusz.primary_skills.all %}
+            {% for image in primary_skills %}
             <div class=" big-card card">
                 <img src="{{ image.image }}" class="img-fluid" alt="{{ image.title }}">
             </div>

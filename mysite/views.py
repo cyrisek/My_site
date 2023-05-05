@@ -14,9 +14,11 @@ class BaseView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         mateusz = Profile.objects.get(name='Mateusz Urban')
+        primary_skills = mateusz.primary_skills.all().order_by("-id")
         context['mateusz'] = mateusz
         form = ContactForm()
         context['form'] = form
+        context['primary_skills'] = primary_skills
         return context
 
 
