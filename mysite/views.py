@@ -22,6 +22,7 @@ class BaseView(TemplateView):
         return context
 
 
+@csrf_exempt
 class ContactView(FormView):
     form_class = ContactForm
     template_name = 'contact_form.html'
