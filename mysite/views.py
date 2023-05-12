@@ -22,12 +22,12 @@ class BaseView(TemplateView):
         return context
 
 
-@csrf_exempt
 class ContactView(FormView):
     form_class = ContactForm
     template_name = 'contact_form.html'
     success_url = reverse_lazy('base')
 
+    @csrf_exempt
     def form_valid(self, form):
         subject = form.cleaned_data['name']
         from_email = form.cleaned_data['email']
