@@ -39,12 +39,13 @@ PGPORT = os.environ.get('PGPORT')
 PGUSER = os.environ.get('PGUSER')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
 # Csrf origins
-CSRF_TRUSTED_ORIGINS = ['https://mateusz-urban.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = [
+    'https://mateusz-urban.up.railway.app/', 'http://127.0.0.1:8000/']
 
 # Application definition
 

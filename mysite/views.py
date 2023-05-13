@@ -1,7 +1,8 @@
 from django.views.generic import TemplateView, FormView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_protect
 from django.core.mail import send_mail
 from django.http import JsonResponse, FileResponse, Http404
 from .models import Contact, Profile
@@ -22,6 +23,7 @@ class BaseView(TemplateView):
         return context
 
 
+@method_decorator(csrf_protect, name='dispatch')
 class ContactView(FormView):
     form_class = ContactForm
     template_name = 'contact_form.html'
