@@ -43,6 +43,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# Csrf origins
+CSRF_TRUSTED_ORIGINS = ['https://mateusz-urban.up.railway.app/']
 
 # Application definition
 
