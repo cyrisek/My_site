@@ -39,7 +39,7 @@ PGPORT = os.environ.get('PGPORT')
 PGUSER = os.environ.get('PGUSER')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
