@@ -45,7 +45,7 @@ ALLOWED_HOSTS = ['*']
 
 # Csrf origins
 CSRF_TRUSTED_ORIGINS = [
-    'https://mateusz-urban.up.railway.app', 'http://127.0.0.1:8000/']
+    'https://space-invaders.up.railway.app', 'http://127.0.0.1:8000/']
 
 # Application definition
 
