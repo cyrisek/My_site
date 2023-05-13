@@ -44,27 +44,42 @@ $("button.navbar-toggler").click(function () {
 });
 $("form").submit(function (event) {
     event.preventDefault();
-    $.post($(this).attr("action"), $(this).serialize(), function (response) {
-        // update the HTML of a div with the response from the server
-        if (response.status === 'success') {
-            $(".alert-success").removeClass("d-none").html(response.message);
-            $('#myForm').find('input[type="text"], input[type="email"], textarea').val('');
-            setTimeout(function () {
-                $(".alert-success").addClass("d-none");
-            }, 5000);
-        } else {
-            $(".alert-danger").removeClass("d-none").html(response.message);
-            console.log(response);
-            $('#myForm').find('input[type="text"], input[type="email"], textarea').val('');
-            setTimeout(function () {
-                $(".alert-danger").addClass("d-none");
-            }, 5000);
+    var form = $(this);
+    var url = form.attr("action");
+    var data = form.serialize();
+    var csrf_token = $('meta[name="csrf-token"]').attr('content'); // retrieve CSRF token from meta tag
+
+    // Add CSRF token to form data
+    data += "&_token=" + csrf_token;
+
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: data,
+        success: function (response) {
+            // handle success response
+            if (response.status === 'success') {
+                $(".alert-success").removeClass("d-none").html(response.message);
+                form.find('input[type="text"], input[type="email"], textarea').val('');
+                setTimeout(function () {
+                    $(".alert-success").addClass("d-none");
+                }, 5000);
+            } else {
+                $(".alert-danger").removeClass("d-none").html(response.message);
+                console.log(response);
+                form.find('input[type="text"], input[type="email"], textarea').val('');
+                setTimeout(function () {
+                    $(".alert-danger").addClass("d-none");
+                }, 5000);
+            }
+        },
+        error: function (xhr, status, error) {
+            // handle error response
         }
     });
 });
 $('#color-button').on('click', function () {
     const currentMainColor = $(':root').css('--main-color');
-    const currentAccentColor = $(':root').css('--accent-color');
 
     if (currentMainColor === '#fafafa') {
         $(':root').css('--main-color', '#09192E');
