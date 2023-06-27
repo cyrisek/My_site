@@ -92,7 +92,7 @@ class AboutMe(models.Model):
 class Profile(models.Model):
     name = models.CharField(max_length=50)
     job_title = models.CharField(max_length=50, blank=True)
-    overview = models.TextField(max_length=400, blank=True)
+    overview = models.TextField(max_length=500, blank=True)
     nickname = models.CharField(max_length=10, blank=True)
     social_links = models.ManyToManyField(SocialLink)
     bio = models.OneToOneField(AboutMe, on_delete=models.CASCADE)
